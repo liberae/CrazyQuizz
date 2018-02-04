@@ -1,0 +1,113 @@
+<resources>
+    <string name="app_name">Crazy Quizz</string>
+    <string name="start_menu">&lt;Swipe to begin&gt;</string>
+    <string name="language"> Change language</string>
+    <string name="shared_pref">0</string>
+
+
+
+    <string-array name="questions_array">
+        <item>What is the name of the national sport and martial art of the Philippines?</item>
+        <item>What do you call the fighting stick used in FMA(Filipino Martial Arts?</item>
+        <item>Who was the first Spaniard to document Filipino Martial Arts origins?</item>
+        <item>How many angles of attack are there in Kali?</item>
+        <item>What is the most famous Filipino weapon known to the western world?</item>
+        <item>If you practice Filipino Martial Arts, what is most likely to get bruised the most?</item>
+        <item>What does Espada y daga mean?</item>
+        <item>Which of the following Filipino martial arts is empty hand only (ie. no weapons)?</item>
+        <item>Students usually refer to their Filipino instructors as:</item>
+        <item>Historically, which famous explorer was killed by a Filipino fighter?</item>
+        <item>The most famous, legendary martial artist?</item>
+        <item>Pick two of the weapons used in sport version of Eskrima - combat kalaki?</item>
+
+    </string-array>
+
+    <string-array name="answers_array_one">
+
+        <item>Kali</item>
+        <item>Silat</item>
+        <item>Muay Thai</item>
+        <item>Systema</item>
+    </string-array>
+
+    <string-array name="answers_array_two">
+
+        <item>Eskrima</item>
+        <item>Sitbatan</item>
+        <item>Estoque</item>
+        <item>Garrote</item>
+    </string-array>
+
+    <string-array name="answers_array_three">
+
+        <item>Ferdinand Magellan</item>
+        <item>Antonio Pigafetta</item>
+        <item>Ricky Martin</item>
+        <item>Fray Casimiro Díaz</item>
+    </string-array>
+
+    <string-array name="answers_array_four">
+
+        <item>6</item>
+        <item>12</item>
+        <item>18</item>
+        <item>24</item>
+    </string-array>
+
+    <string-array name="answers_array_five">
+
+        <item>Bolo</item>
+        <item>Kampilan</item>
+        <item>Kris</item>
+        <item>Balisong</item>
+
+    </string-array>
+    <string-array name="answers_array_six">
+
+        <item>Hands and Arms</item>
+        <item>Teeth and Face</item>
+        <item>Feet and Toes</item>
+        <item>Knees and Elbows</item>
+
+    </string-array>
+    <string-array name="answers_array_seven">
+
+        <item>Stick and Knife</item>
+        <item>Spade and Dagger</item>
+        <item>Sword and Dagger</item>
+        <item>Sword and Knife</item>
+
+    </string-array>
+    <string-array name="answers_array_eight">
+
+        <item>Arnis</item>
+        <item>Eskrima</item>
+        <item>Panantukan</item>
+        <item>Kino Mutai</item>
+
+    </string-array>
+    <string-array name="answers_array_nine">
+
+        <item>Guro</item>
+        <item>Sensei</item>
+        <item>Mestre</item>
+        <item>Sifu</item>
+
+    </string-array>
+    <string-array name="answers_array_ten">
+
+        <item>Christopher Columbus</item>
+        <item>Jacques Cousteau</item>
+        <item>Ferdinand Magellan</item>
+        <item>Sir Francis Drake</item>
+
+    </string-array>
+
+
+
+
+
+
+
+
+</resources>

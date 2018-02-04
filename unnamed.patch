@@ -1,0 +1,347 @@
+Index: MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- MainActivity.java	(revision 8a1028aba1573d45359ccf52fa77ae8aa486fbf0)
++++ MainActivity.java	(revision )
+@@ -19,116 +19,130 @@
+ 
+ public class MainActivity extends FragmentActivity {
+ 
++    public List shuffleQuestions() {
++        Resources res = getResources();
++//        String[] questionsArray = res.getStringArray(R.array.questions_array);
++//        findView by id still throws an error that it may produce nullpointerexception. deal with it later.
++        // instantiating String Array
++        String[] questionsArray = res.getStringArray(R.array.questions_array);
++// converting array to a List
+ 
++        List<String> list = Arrays.asList(questionsArray);
++
++        // Shuffling list elements
++        Collections.shuffle(list);
++        Log.v("MainActivity", String.valueOf(list));
++        System.out.println("String Array: ");
++        return list;
++    }
+-    /**
+-     * The number of pages (wizard steps) to show in this demo.
+-     */
+-    private static final int NUM_PAGES = 6;
+-    /**
+-     * The pager widget, which handles animation and allows swiping horizontally to access previous
+-     * and next wizard steps.
+-     */
+-    private ViewPager mPager;
++        /**
++         * The number of pages (wizard steps) to show in this demo.
++         */
++        private static final int NUM_PAGES = 6;
++        /**
++         * The pager widget, which handles animation and allows swiping horizontally to access previous
++         * and next wizard steps.
++         */
++        private ViewPager mPager;
+ 
+-    /**
+-     * The pager adapter, which provides the pages to the view pager widget.
+-     */
++        /**
++         * The pager adapter, which provides the pages to the view pager widget.
++         */
+ 
+-    private PagerAdapter mPagerAdapter;
++        private PagerAdapter mPagerAdapter;
+ 
+ 
+-    @Override
++        @Override
+-    protected void onCreate(Bundle savedInstanceState) {
++        protected void onCreate (Bundle savedInstanceState){
+ 
+-        super.onCreate(savedInstanceState);
+-        setContentView(R.layout.activity_main);
++            super.onCreate(savedInstanceState);
++            setContentView(R.layout.activity_main);
+ 
+ 
+ /**Instantiate a viewpager and a PagerAdapter
+  **/
+-        mPager = (ViewPager) findViewById(pager);
+-        mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+-        mPager.setAdapter(mPagerAdapter);
+-        mPager.setOffscreenPageLimit(0);
++            mPager = (ViewPager) findViewById(pager);
++            mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
++            mPager.setAdapter(mPagerAdapter);
++            mPager.setOffscreenPageLimit(0);
+ 
+ 
+-    }
++        }
+-
+ 
+ 
+-    @Override
++        @Override
+ 
+-    public void onBackPressed() {
++        public void onBackPressed () {
+-        if (mPager.getCurrentItem() == 0) {
+-            // If the user is currently looking at the first step, allow the system to handle the
+-            // Back button. This calls finish() on this activity and pops the back stack.
+-            super.onBackPressed();
+-        } else {
+-            // Otherwise, select the previous step.
+-            mPager.setCurrentItem(mPager.getCurrentItem() - 1);
+-        }
+-    }
++            if (mPager.getCurrentItem() == 0) {
++                // If the user is currently looking at the first step, allow the system to handle the
++                // Back button. This calls finish() on this activity and pops the back stack.
++                super.onBackPressed();
++            } else {
++                // Otherwise, select the previous step.
++                mPager.setCurrentItem(mPager.getCurrentItem() - 1);
++            }
++        }
+ 
+-    /**
+-     * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
+-     * sequence.
+-     */
++        /**
++         * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
++         * sequence.
++         */
+ 
+-    private class ScreenSlidePagerAdapter extends FragmentPagerAdapter {
++        private class ScreenSlidePagerAdapter extends FragmentPagerAdapter {
+ 
+-        public ScreenSlidePagerAdapter(FragmentManager fm) {
+-            super(fm);
+-        }
++            public ScreenSlidePagerAdapter(FragmentManager fm) {
++                super(fm);
++            }
+ 
+ 
+-        @Override
+-        public int getCount() {
++            @Override
++            public int getCount() {
+ 
+-            return NUM_PAGES;
+-        }
++                return NUM_PAGES;
++            }
+ 
+-        @Override
+-        public Fragment getItem(int position) {
+-            switch (position) {
+-                case 0:
+-                    return new ScreenSlidePageFragment();
++            @Override
++            public Fragment getItem(int position) {
++                switch (position) {
++                    case 0:
++                        return new ScreenSlidePageFragment();
+ 
+-                case 1:
+-                    return new ScreenSlidePagerFragmentTwo();
+-                case 2:
+-                    return new ScreenSlidePagerFragmentTwo();
+-                case 3:
+-                    return new ScreenSlidePagerFragmentTwo();
+-                case 4:
+-                    return new ScreenSlidePagerFragmentTwo();
+-                case 5:
+-                    return new ScreenSlidePagerFragmentTwo();
++                    case 1:
++                        return new ScreenSlidePagerFragmentTwo();
++                    case 2:
++                        return new ScreenSlidePagerFragmentTwo();
++                    case 3:
++                        return new ScreenSlidePagerFragmentTwo();
++                    case 4:
++                        return new ScreenSlidePagerFragmentTwo();
++                    case 5:
++                        return new ScreenSlidePagerFragmentTwo();
+ 
+-                default:
+-                    return null;
+-            }
+-        }
++                    default:
++                        return null;
++                }
++            }
+ 
+ 
+-        public List list() {
+-            // instantiating String Array
+-            TextView questionTextView = (TextView) findViewById(R.id.question_text_view);
+-            Resources res = getResources();
+-            String[] questionsArray = res.getStringArray(R.array.questions_array);
+-            // converting array to a List
+-            List<String> list = Arrays.asList(questionsArray);
++            public List list() {
++                // instantiating String Array
++                TextView questionTextView = (TextView) findViewById(R.id.question_text_view);
++                Resources res = getResources();
++                String[] questionsArray = res.getStringArray(R.array.questions_array);
++                // converting array to a List
++                List<String> list = Arrays.asList(questionsArray);
+ 
+-            // Shuffling list elements
++                // Shuffling list elements
+ 
+-            Collections.shuffle(list);
+-            Log.v("MainActivity", String.valueOf(list));
+-            System.out.println("String Array: ");
+-            questionTextView.setText(list.get(0));
+-            return list;
++                Collections.shuffle(list);
++                Log.v("MainActivity", String.valueOf(list));
++                System.out.println("String Array: ");
++                questionTextView.setText(list.get(0));
++                return list;
+ 
+-        }
+-    }
+-}
++            }
++        }
++    }
+ 
+ 
+ 
+Index: ScreenSlidePagerFragmentTwo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- ScreenSlidePagerFragmentTwo.java	(revision 8a1028aba1573d45359ccf52fa77ae8aa486fbf0)
++++ ScreenSlidePagerFragmentTwo.java	(revision )
+@@ -1,16 +1,22 @@
+ package com.example.android.crazyquizz;
+ 
+ import android.os.Bundle;
+-import android.support.v4.app.Fragment;
++import android.util.Log;
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
++import android.widget.TextView;
+ 
++import java.util.List;
++
++import static android.R.id.list;
+ import static com.example.android.crazyquizz.R.layout.activity_main3;
+ 
+ 
+-public class ScreenSlidePagerFragmentTwo extends Fragment {
++public class ScreenSlidePagerFragmentTwo extends ScreenSlidePageFragment {
+ 
++
++
+     @Override
+     public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                              Bundle savedInstanceState) {
+@@ -20,27 +26,38 @@
+     }
+ 
+ 
++//to get the text view from a layout belonging to a fragment activity we needed to invoke a method
++//    onActivityCreated with a superclass and then check if the view does not equal to null the view
++//    will be set to that textview from a fragment activity. otherwise the findviewbyid method doesnt
++//    see the textview because its in the main layout and the setContentView in MainActivity.java is set to activity_main.
+ 
++    @Override
++    public void onActivityCreated(Bundle savedInstanceState) {
++        super.onActivityCreated(savedInstanceState);
+ 
++        View view = getView();
++        if (view != null) {
++            view.findViewById(R.id.question_text_view);
+ 
++displayQuestions();
++        }
++    }
+ 
++    public void displayQuestions() {
++        List question = shuffleQuestions();
++        Log.v("MainActivity", String.valueOf(question));
++        System.out.println("String Array: ");
++        TextView questionTextView = (TextView) getView().findViewById(R.id.question_text_view);
++        questionTextView.setText((CharSequence) question.get(2));
+ 
+-//to get the text view from a layout belonging to a fragment activity we needed to invoke a method
+-//    onActivityCreated with a superclass and then check if the view does not equal to null the view
+-//    will be set to that textview from a fragment activity. otherwise the findviewbyid method doesnt
+-//    see the textview because its in the main layout and the setContentView in MainActivity.java is set to activity_main.
++    }
+ 
+-//    @Override
+-//    public void onActivityCreated(Bundle savedInstanceState) {
+-//        super.onActivityCreated(savedInstanceState);
++
++
++
+ //
+-//        View view = getView();
+-//        if (view != null) {
+-//            view.findViewById(R.id.question_text_view);
+-//
+-//        }
+ 
+-    }
++}
+ 
+ //    public List displayQuestions() {
+ //        Resources res = getResources();
+@@ -60,42 +77,6 @@
+ //        questionTextView.setText(list.get(0));
+ //        return  list;
+ //    }
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+ 
+ 
+ // converting array to a List
+\ No newline at end of file
